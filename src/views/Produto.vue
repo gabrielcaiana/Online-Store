@@ -2,7 +2,7 @@
     <div>
         <section class="wrapper">
             <div class="flex-col">
-                <img class="flex-col--2" :src="caminhoImagem(produto)" alt="">
+                <img class="flex-col--2" :src="criarCaminhoImagem(produto)" alt="">
                 <div class="flex-col--2">
                     <h2> {{ produto.nome }} </h2>
                     <p class="preco">R${{ produto.preco }}</p>
@@ -14,7 +14,8 @@
                     <ul>
                         <li><b>Material:</b> {{ produto.detalhes.material}}</li>
                         <li><i>{{ produto.detalhes.descricao }}</i></li>
-                        <li><b>Estilo:</b> {{ produto.detalhes.style }}</li>
+                        <li><b>Estilo:</b>{{ produto.detalhes.style }}</li>
+                        <li v-if="produto.detalhes.opcional">{{produto.detalhes.opcional}}</li>
                     </ul>
                 </div>
             </div>
@@ -22,18 +23,16 @@
     </div>
 </template>
 <script>
+import {caminhoImagem} from "@/mixins/caminhoImagem.js"
+
 export default {
     nome: 'produto',
+    mixins: [caminhoImagem],
     data() {
         return {
             produto: this.$store.getters.produto(this.$route.params.id)
         }
     },
-    methods: {
-        caminhoImagem(produto) {
-            return require(`../assets/produtos/${produto.imagens[0]}`)
-        }
-    }
 }
 </script>
 

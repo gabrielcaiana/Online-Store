@@ -5,7 +5,7 @@
       <ul class="itens-destaque">
         <li v-for="produto in produtos" :key="produto.id" class="itens-destaque__item">
           <router-link :to="{ name: 'produto', params: { id: produto.id }}">
-            <img class="produto-imagem" :src="caminhoImagem(produto)" alt="">
+            <img class="produto-imagem" :src="criarCaminhoImagem(produto)" alt="">
             <p class="produto-titulo"> {{produto.nome}} </p>
             <p><em> ${{ produto.preco }} </em></p>
           </router-link>
@@ -16,20 +16,17 @@
 </template>
 
 <script>
+import {caminhoImagem} from "@/mixins/caminhoImagem.js"
 
 export default {
   name: "home",
+  mixins: [caminhoImagem],
   computed: {
     produtos() {
       //retornando os produtos do vuex 
       return this.$store.state.produtos
     },
-  },
-    methods: {
-      caminhoImagem(produto) {
-        return require(`../assets/produtos/${produto.imagens[0]}`)
-      }
-    }
+  }
 };
 </script>
 

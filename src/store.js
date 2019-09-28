@@ -19,7 +19,8 @@ export default new Vuex.Store({
                 detalhes: {
                     material: "Plastico",
                     descricao: "Inspirado no original do início de 2000, o Nike Presto React traz um toque inesperado a um ícone sempre não convencional. A entressola de espuma inovadora React proporciona um visual futurista e uma sensação elástica e leve para conforto o dia todo com muita personalidade.",
-                    style: "AV2605-600"
+                    style: "AV2605-600",
+                    opcional: ""
                 },
                 imagens: [
                     "1-1.png",
@@ -40,7 +41,8 @@ export default new Vuex.Store({
                 detalhes: {
                     material: "tecido",
                     descricao: "O Nike SB Zoom Janoski RM combina um visual minimalista com ajuste moderno. Ele foi atualizado com uma nova palmilha macia e solado flexível para uma melhor sensibilidade ao skate, direto da caixa.",
-                    style: "AQ7475-003"
+                    style: "AQ7475-003",
+                    opcional: "1200 vendidos"
                 },
                 imagens: [
                     "2-1.png",
@@ -61,7 +63,8 @@ export default new Vuex.Store({
                 detalhes: {
                     material: "Camurça",
                     descricao: "O Nike SB Zoom Janoski RM combina um visual minimalista com ajuste moderno. Ele foi atualizado com uma nova palmilha macia e entressola flexível para uma melhor sensibilidade ao skate, direto da caixa.",
-                    style: "AT7324-001"
+                    style: "AT7324-001",
+                    opcional: ""
                 },
                 imagens: [
                     "3-1.png",
