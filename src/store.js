@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         carrinho: [],
-        produto: [{
+        produtos: [{
                 nome: "Tênis Nike React Presto Masculino",
                 id: 1,
                 preco: 499.99,
@@ -72,5 +72,10 @@ export default new Vuex.Store({
         ]
     },
     mutations: {},
-    actions: {}
+    actions: {},
+    getters: {
+        produto: (state) => (id) => {
+            return state.produtos.filter(p => p.id === Number(id))[0]
+        }
+    }
 });
