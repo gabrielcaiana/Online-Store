@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    <div id="nav" class="wrapper">
-      <router-link to="/">Inicio</router-link> |
-      <router-link to="/carrinho">Carrinho</router-link>
+    <div id="nav" class="wrapper flex-col">
+      <h1 class="flex-col--2 align--left">Nike Store</h1>
+      <div class="flex-col--2 align-self--center">
+      <router-link class="text--decoration" to="/">Inicio</router-link> |
+      <router-link class="text--decoration" to="/carrinho">Carrinho</router-link>
+      </div>
     </div>
     <router-view />
   </div>
@@ -26,6 +29,15 @@
     &.router-link-exact-active {
       color: #42b983;
     }
+  }
+  .align--left {
+    text-align: left;
+  }
+  .align-self--center {
+    align-self: center;
+  }
+  .text--decoration {
+    text-decoration: none;
   }
 }
 </style>

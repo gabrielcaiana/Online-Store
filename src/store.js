@@ -5,7 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        carrinho: [],
+        carrinho: [1],
         produtos: [{
                 nome: "Tênis Nike React Presto Masculino",
                 id: 1,
@@ -74,11 +74,43 @@ export default new Vuex.Store({
             }
         ]
     },
-    mutations: {},
-    actions: {},
+    mutations: {
+        addCarrinho(state, payload) {
+            state.carrinho.push(Number(payload))
+        },
+        removerItemCarrinho(state, payload) {
+            let indexToDelete = state.carrinho.indexOf(Number(payload));
+            state.carrinho.splice(indexToDelete, 1)
+        },
+        decrementProductInventory(state, payload) {
+            let produto = state.produtos.find(produto => produto.id === Number(payload))
+            produto.quantidade--;
+        },
+        incrementProductInventory(state, payload) {
+            let produto = state.produtos.find(produto => produto.id === Number(payload))
+            produto.quantidade++;
+        }
+    },
+    actions: {
+        addCarrinho({ commit }, payload) {
+            commit('addCarrinho', payload)
+            commit('decrementProductInventory', payload)
+        },
+        removerItemCarrinho({ commit }, payload) {
+            commit('removerItemCarrinho', payload)
+            commit('incrementProductInventory', payload)
+        }
+    },
     getters: {
         produto: (state) => (id) => {
             return state.produtos.filter(p => p.id === Number(id))[0]
+        },
+        addCarrinho: (state) => {
+            return state.carrinho.map(
+                itemId => state.produtos.find(
+                    produto => produto.id === itemId
+                )
+            )
         }
     }
-});
+})
