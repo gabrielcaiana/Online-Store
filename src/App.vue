@@ -4,12 +4,28 @@
       <h1 class="flex-col--2 align--left">Nike Store</h1>
       <div class="flex-col--2 align-self--center">
       <router-link class="text--decoration" to="/">Inicio</router-link> |
-      <router-link class="text--decoration" to="/carrinho">Carrinho</router-link>
+      <router-link class="text--decoration nav-items__item" to="/carrinho">
+        Carrinho
+        <contador-carrinho :contador="contarCarrinho"></contador-carrinho>
+      </router-link>
       </div>
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+import contadorCarrinho from "@/components/contador";
+export default {
+  nome: 'app',
+  components: {contadorCarrinho},
+  computed: {
+    contarCarrinho() {
+       return this.$store.state.carrinho.length
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
@@ -39,5 +55,13 @@
   .text--decoration {
     text-decoration: none;
   }
+}
+.nav_items {
+  justify-content: flex-end;
+  display: flex;
+}
+.nav-items__item {
+  margin-left: 1rem;
+  position: relative;
 }
 </style>
