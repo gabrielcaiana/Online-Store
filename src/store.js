@@ -71,6 +71,27 @@ export default new Vuex.Store({
                     "3-2.png",
                     "3-3.png"
                 ]
+            },
+            {
+                nome: "Chuteira Nike Mercurial Vapor 13 Academy Campo Unissex",
+                id: 4,
+                preco: 379.99,
+                cor: "preto",
+                tamanho: "56",
+                genero: "Unissex",
+                quantidade: "400",
+                adicionadoEm: "11/10/2019 07:00",
+                categoria: "Esporte",
+                detalhes: {
+                    material: "Camurça",
+                    descricao: "A Mercurial 360 é uma das chuteiras Nike mais adoradas de todos os tempos. Centenas de jogadores e jogadoras profissionais usam este modelo em todo o mundo. Projetada para voar baixo, o material leve e o caimento firme trazer a tração que você precisa para deixar o outro time comendo poeira. Complementando a inovação da placa no antepé na 12, a Chuteira Nike Mercurial Vapor 13 Academy confere uma placa versátil para múltiplas superfícies que proporciona tração em gramados naturais",
+                    style: "AT724-3",
+                    opcional: ""
+                },
+                imagens: [
+                    "4-1.png",
+                ]
+
             }
         ]
     },
